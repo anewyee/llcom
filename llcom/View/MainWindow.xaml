@@ -41,16 +41,18 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*" />
+            <ColumnDefinition Width="142*" />
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="361*"/>
             <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="350*" />
         </Grid.ColumnDefinitions>
 
         <!--  收发数据显示  -->
-        <Frame Name="dataShowFrame" NavigationUIVisibility="Hidden" />
+        <Frame Name="dataShowFrame" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="0,0,5,58" Grid.RowSpan="2" />
 
         <!--  发送数据区  -->
-        <Grid Grid.Row="1" Margin="2">
+        <Grid Grid.Row="1" Margin="2,2,2,2" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -113,7 +115,7 @@
 
 
         <!--  底部状态栏  -->
-        <DockPanel Grid.Row="2" Grid.ColumnSpan="3">
+        <DockPanel Grid.Row="2" Grid.ColumnSpan="5">
             <StatusBar DockPanel.Dock="Bottom">
                 <StatusBar.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -246,13 +248,13 @@
 
         <!--  中间改变分割大小的东西  -->
         <GridSplitter
-            Grid.RowSpan="2"
-            Grid.Column="1"
+            Grid.RowSpan="3"
+            Grid.Column="2"
             Width="5"
-            HorizontalAlignment="Stretch" />
+            HorizontalAlignment="Stretch" Grid.ColumnSpan="3" Margin="361,0,345,27" />
 
         <!--  右侧脚本、快捷发送  -->
-        <TabControl Grid.RowSpan="2" Grid.Column="3">
+        <TabControl Grid.RowSpan="3" Grid.Column="2" Margin="361,0,0,27" Grid.ColumnSpan="3">
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -657,16 +659,15 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="{DynamicResource AboutCard}">
+            <TabItem Header="{DynamicResource AboutCard}" Visibility="Hidden">
                 <Frame Name="aboutFrame" NavigationUIVisibility="Hidden" />
             </TabItem>
         </TabControl>
 
         <Menu
-            Grid.RowSpan="2"
             Grid.Column="3"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top">
+            VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem ToolTip="{DynamicResource ChangeLanguage}">
                 <MenuItem.Header>
                     <fa:FontAwesome Foreground="Blue" Icon="Globe" />
@@ -684,6 +685,6 @@
 
 
         <!--  统计  -->
-        <WebBrowser Name="TongjiWebBrowser" Visibility="Collapsed" />
+        <WebBrowser Name="TongjiWebBrowser" Visibility="Collapsed" Grid.ColumnSpan="3" Margin="0,0,5,58" Grid.RowSpan="2" />
     </Grid>
 </Window>
